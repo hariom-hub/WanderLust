@@ -26,7 +26,10 @@
 </head>
 
 <body>
-    <h1>All Listings</h1>
+    <h1>All Listings</h1><br>
+
+    <button><a href="/listings/new">Create new Listing</a></button>
+
     <% for (let list of allListings){ %>
         <hr>
         <div>
@@ -35,7 +38,7 @@
             </h2>
             <img src="<%= list.image.url %>" alt="img">
             <p>
-                Price : Rs_<%= list.price %>
+                Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
             </p>
             <h3>
                 <%= list.location %>
@@ -43,7 +46,7 @@
             <h4>
                 <%= list.country %>
             </h4>
-            <button><a href="/listings/:id">View</a></button>
+            <button><a href="/listings/<%=list._id%>">View Listing</a></button>
         </div>
         
         <hr>

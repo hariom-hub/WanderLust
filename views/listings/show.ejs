@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Listing</title>
+    <style>
+        img{
+            height: 300px;
+            width: auto;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Choosen list</h1>
+        <button><a href="/listings">Go Back</a></button>
+        <h2>
+            <%= singleList.title%>
+        </h2>
+        <p>
+            <%= singleList.description %>
+        </p>
+        <img src="<%=singleList.image.url %>" alt="img">
+        <h3>Price : &#8377;<%= singleList.price.toLocaleString("en-IN") %>
+        </h3>
+        <p>Location : <%= singleList.location %>
+        </p>
+        <h2>Country : <%= singleList.country %>
+        </h2>
+        
+    </div>
+
+</body>
+
+</html>
