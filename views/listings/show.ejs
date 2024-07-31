@@ -20,6 +20,7 @@
     <div>
         <h1>Choosen list</h1>
         <button><a href="/listings">Go Back</a></button>
+        <br>
         <h2>
             <%= singleList.title%>
         </h2>
@@ -33,7 +34,7 @@
         </p>
         <h2>Country : <%= singleList.country %>
         </h2>
-        
+        <button><a href="/listings/<%=singleList._id%>/edit">Edit Post</a></button>
     </div>
 
 </body>

@@ -11,3 +11,6 @@ Image (URL) - String,
 Price - Number,
 Location - String,
 Country - String 
+
+
+Task - Add feature of adding image, updating image, deleting image in update routes and other routes.

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const mongoUrl = 'mongodb://127.0.0.1:27017/WanderLust';
 const Listings = require("./models/listing");
 const path = require("path");
-app.set("views engine", "ejs");
+app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, '/views/listings'));
 app.use(express.urlencoded({ extended: true }));
 
@@ -26,12 +26,13 @@ async function main() {
     await mongoose.connect(mongoUrl);
 }
 
+//home route
 app.get('/', (req, res) => {
 
     res.send("Root path");
 })
 
-//listings
+// all current listings route
 
 app.get('/listings', async (req, res) => {
 
@@ -39,8 +40,25 @@ app.get('/listings', async (req, res) => {
     res.render("index.ejs", { allListings });
 })
 
+//new add new listings route
+app.get('/listings/new', async (req,res)=>{
+    res.render("new.ejs");
+})
+
+// all listing route after adding new data
+app.post('/listings', async (req,res)=>{
+
+    // let newListing = req.body.listings;
+    // console.log(newListing);
+    let newListing = new Listings(req.body.listings);
+    newListing.save();
+    console.log(newListing);
+    res.redirect("/listings");
+})
 
 
+
+//specific listing route
 app.get('/listings/:id', async (req, res) => {
 
     let { id } = req.params;
@@ -49,11 +67,20 @@ app.get('/listings/:id', async (req, res) => {
 
 });
 
+// get form for editing data (get type)
 
-app.get('/listings/new', (req, res) => {
 
-    res.render("new.ejs");
+app.get('/listings/:id/edit',async (req,res)=>{
+
+    //render a from
+    await res.render("edit.ejs");
 })
+
+
+//put route for updating data
+
+
+
 
 app.listen(5050, () => {
 

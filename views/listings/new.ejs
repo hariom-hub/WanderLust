@@ -4,8 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Listing</title>
+    <style>
+        div{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>hello</h1>
+    <div>
+        <form action="/listings" method="post">
+
+            <input type="text" name="listings[title]" placeholder="Enter Title">
+            <br>
+            <br>
+            <input type="text" name="listings[description]" id="" placeholder="Enter description">
+            <br><br>
+            <input type="text" name="listings[location]" id="" placeholder="Enter location">
+            <br><br>
+            <input type="text" name="listings[country]" id="" placeholder="Enter Country">
+            <br><br>
+            <input type="number" name="listings[price]" id="" placeholder="Enter Price">
+            <br><br>
+            <input type="text" name="listings[image]" id="" placeholder="Enter Image URL">
+            <!-- <label class="file-upload">
+                Choose Image from System
+                <br>
+                <input type="file" name="image">
+            </label> -->
+            <br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <!-- <script>
+        // Optional: Add JavaScript to handle the file selection event
+        document.querySelector('input[type="file"]').addEventListener('change', function(event) {
+            const files = event.target.files;
+            if (files.length > 0) {
+                alert(`Selected file: ${files[0].name}`);
+            }
+        });
+    </script> -->
 </body>
 </html>

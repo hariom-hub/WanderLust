@@ -27,15 +27,22 @@
 
 <body>
     <h1>All Listings</h1><br>
-
-    <button><a href="/listings/new">Create new Listing</a></button>
-
+    <form action="/listings/new" method="get">
+        <button>
+            Add Listing
+        </button>
+    </form>
     <% for (let list of allListings){ %>
         <hr>
         <div>
             <h2>
                 <%= list.title %>
             </h2>
+            <br>
+            <h4>
+                <%= list.description %>
+            </h4>
+            <br>
             <img src="<%= list.image.url %>" alt="img">
             <p>
                 Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
