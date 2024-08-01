@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Listing</title>
     <style>
-        img{
+        img {
             height: 300px;
             width: auto;
         }
-        body{
+
+        body {
             text-align: center;
         }
     </style>
@@ -27,7 +28,11 @@
         <p>
             <%= singleList.description %>
         </p>
-        <img src="<%=singleList.image.url %>" alt="img">
+
+        <label for="">Image : </label>
+        <br>
+        <img src="<%=singleList.image.url%>" alt="image">
+
         <h3>Price : &#8377;<%= singleList.price.toLocaleString("en-IN") %>
         </h3>
         <p>Location : <%= singleList.location %>
@@ -35,6 +40,9 @@
         <h2>Country : <%= singleList.country %>
         </h2>
         <button><a href="/listings/<%=singleList._id%>/edit">Edit Post</a></button>
+        <form action="/listings/<%=singleList._id%>?_method=DELETE" method="post">
+            <button type="submit">Delete</button>
+        </form>
     </div>
 
 </body>

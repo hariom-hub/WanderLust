@@ -6,22 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listings</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html,body{
+        html,
+        body {
             height: 100%;
             width: 100%;
             text-align: center;
         }
-        img{
+
+        img {
             height: 200px;
             width: auto;
         }
-        
     </style>
 </head>
 
@@ -34,7 +35,6 @@
     </form>
     <% for (let list of allListings){ %>
         <hr>
-        <div>
             <h2>
                 <%= list.title %>
             </h2>
@@ -43,7 +43,8 @@
                 <%= list.description %>
             </h4>
             <br>
-            <img src="<%= list.image.url %>" alt="img">
+            <img src="<%= list.image.url %>" alt="">
+            <br>
             <p>
                 Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
             </p>
@@ -54,8 +55,7 @@
                 <%= list.country %>
             </h4>
             <button><a href="/listings/<%=list._id%>">View Listing</a></button>
-        </div>
-        
+            <br>
         <hr>
         <% } %>
 </body>

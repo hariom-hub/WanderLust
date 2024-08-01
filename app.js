@@ -5,10 +5,11 @@ const mongoose = require('mongoose');
 const mongoUrl = 'mongodb://127.0.0.1:27017/WanderLust';
 const Listings = require("./models/listing");
 const path = require("path");
+const methodOverride = require("method-override");
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, '/views/listings'));
 app.use(express.urlencoded({ extended: true }));
-
+app.use(methodOverride("_method"));
 
 
 
@@ -41,18 +42,18 @@ app.get('/listings', async (req, res) => {
 })
 
 //new add new listings route
-app.get('/listings/new', async (req,res)=>{
+app.get('/listings/new', async (req, res) => {
     res.render("new.ejs");
 })
 
 // all listing route after adding new data
-app.post('/listings', async (req,res)=>{
+app.post('/listings', async (req, res) => {
 
     // let newListing = req.body.listings;
     // console.log(newListing);
     let newListing = new Listings(req.body.listings);
     newListing.save();
-    console.log(newListing);
+    // console.log(newListing);
     res.redirect("/listings");
 })
 
@@ -70,17 +71,34 @@ app.get('/listings/:id', async (req, res) => {
 // get form for editing data (get type)
 
 
-app.get('/listings/:id/edit',async (req,res)=>{
+app.get('/listings/:id/edit', async (req, res) => {
 
-    //render a from
-    await res.render("edit.ejs");
+    let { id } = req.params;
+    const listing = await Listings.findById(id);
+    // console.log(listing);
+    res.render("edit.ejs", { listing });
+
 })
-
 
 //put route for updating data
 
+app.put('/listings/:id', async (req, res) => {
+
+    let { id } = req.params;
+    await Listings.findByIdAndUpdate(id, { ...req.body.listings });
+    res.redirect(`/listings/${id}`);
+
+})
 
 
+//delete route
+
+app.delete('/listings/:id',async(req,res)=>{
+
+    let {id} = req.params;
+    await Listings.findByIdAndDelete(id);
+    res.redirect('/listings');
+})
 
 app.listen(5050, () => {
 
