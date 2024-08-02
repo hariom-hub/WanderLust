@@ -14,3 +14,4 @@ Country - String
 
 
 Task - Add feature of adding image, updating image, deleting image in update routes and other routes.
+Ejs mate - new npm package for displaying templating like a boiler plate.

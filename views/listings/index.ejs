@@ -1,63 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<% layout("../layout/boilerplate") %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listings</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            height: 100%;
-            width: 100%;
-            text-align: center;
-        }
-
-        img {
-            height: 200px;
-            width: auto;
-        }
-    </style>
-</head>
 
 <body>
-    <h1>All Listings</h1><br>
+    <h1>All Listings</h1><br><hr>
     <form action="/listings/new" method="get">
         <button>
             Add Listing
-        </button>
+        </button><hr>
+        
     </form>
     <% for (let list of allListings){ %>
-        <hr>
-            <h2>
-                <%= list.title %>
-            </h2>
-            <br>
-            <h4>
-                <%= list.description %>
-            </h4>
-            <br>
-            <img src="<%= list.image.url %>" alt="">
-            <br>
-            <p>
-                Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
-            </p>
-            <h3>
-                <%= list.location %>
-            </h3>
-            <h4>
-                <%= list.country %>
-            </h4>
-            <button><a href="/listings/<%=list._id%>">View Listing</a></button>
-            <br>
+        
+        <h2>
+            <%= list.title %>
+        </h2>
+        <h4>
+            <%= list.description %>
+        </h4>
+        <br>
+        <img src="<%= list.image.url %>" alt="">
+        <br>
+        <p>
+            Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
+        </p>
+        <h3>
+            <%= list.location %>
+        </h3>
+        <h4>
+            <%= list.country %>
+        </h4>
+        <button><a href="/listings/<%=list._id%>">View Listing</a></button>
+        <br>
         <hr>
         <% } %>
 </body>
 
-</html>
