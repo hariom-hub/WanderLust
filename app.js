@@ -32,7 +32,7 @@ async function main() {
 //home route
 app.get('/', (req, res) => {
 
-    res.send("Root path");
+    res.render("home.ejs");
 })
 
 // all current listings route

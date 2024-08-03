@@ -1,37 +1,37 @@
 <% layout("../layout/boilerplate") %>
 
 
-<body>
-    <h1>All Listings</h1><br><hr>
-    <form action="/listings/new" method="get">
-        <button>
-            Add Listing
-        </button><hr>
-        
-    </form>
-    <% for (let list of allListings){ %>
-        
-        <h2>
-            <%= list.title %>
-        </h2>
-        <h4>
-            <%= list.description %>
-        </h4>
-        <br>
-        <img src="<%= list.image.url %>" alt="">
-        <br>
-        <p>
-            Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
-        </p>
-        <h3>
-            <%= list.location %>
-        </h3>
-        <h4>
-            <%= list.country %>
-        </h4>
-        <button><a href="/listings/<%=list._id%>">View Listing</a></button>
-        <br>
-        <hr>
-        <% } %>
-</body>
+    <body>
+        <!-- <form action="/listings/new" method="get">
+            <button>
+                Add Listing
+            </button>
+            <hr>
 
+        </form> -->
+        <% for (let list of allListings){ %>
+
+            <h2>
+                <%= list.title %>
+            </h2>
+            <h4>
+                <%= list.description %>
+            </h4>
+            <br>
+            <img src="<%= list.image.url %>" alt="img">
+            <br>
+            <p>
+                Price : &#8377;<%= list.price.toLocaleString("en-IN") %>
+            </p>
+            <h3>
+                <%= list.location %>
+            </h3>
+            <h4>
+                <%= list.country %>
+            </h4>
+            <button><a href="/listings/<%=list._id%>">View Listing</a></button>
+            <br>
+            <hr>
+            <% } %>
+
+    </body>
