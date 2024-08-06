@@ -1,7 +1,6 @@
 <% layout("../layouts/boilerplate") %>
-<link rel="stylesheet" href="../layouts/file.css">
         <h1>All Listings</h1>
-        <div class="row row-cols-lg-4">
+        <div class="row row-cols-lg-4 offset-2 mb-3">
             <% for (let list of allListings){ %>
                 <div class="card" style="width: 18rem;">
                     <img src="<%= list.image.url %>" class="card-img-top" alt="...">
@@ -24,3 +23,11 @@
                 </div>
                 <% } %>
         </div>
+
+<style>
+    .card{
+
+        align-items: center;
+        border: none !important;
+    }
+</style>

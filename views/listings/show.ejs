@@ -1,9 +1,14 @@
 <% layout("../layouts/boilerplate") %>
+    <style>
+        body div {
+            text-align: center;
+        }
+    </style>
     <title>View Listing</title>
+
     <body>
         <div class="show">
-            <h1>Choosen list</h1>
-            <button><a href="/listings">Go Back</a></button>
+            <!-- <h1>Choosen list</h1> -->
             <br>
             <h2>
                 <%= singleList.title%>
@@ -11,10 +16,9 @@
             <p>
                 <%= singleList.description %>
             </p>
-
-            <label for="">Image : </label>
             <br>
-            <img src="<%=singleList.image.url%>" alt="image">
+
+            <img src="<%=singleList.image.url%>" class="img-fluid" alt="image">
 
             <h3>Price : &#8377;<%= singleList.price.toLocaleString("en-IN") %>
             </h3>
@@ -22,10 +26,13 @@
             </p>
             <h2>Country : <%= singleList.country %>
             </h2>
-            <button><a href="/listings/<%=singleList._id%>/edit">Edit Post</a></button>
+            <button class="btn btn-secondary"><a href="/listings/<%=singleList._id%>/edit">Edit Post</a></button>
             <form action="/listings/<%=singleList._id%>?_method=DELETE" method="post">
-                <button type="submit">Delete</button>
+                <!-- <button type="submit">Delete</button> -->
+                <button type="submit" class="btn btn-danger">Delete</button>
             </form>
+            <!-- <button type="button" class="btn btn-secondary">Secondary</button> -->
+            <button class="btn btn-info"><a href="/listings">Go Back</a></button>
         </div>
         <hr>
 

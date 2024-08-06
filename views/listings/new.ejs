@@ -1,40 +1,67 @@
 <% layout("../layouts/boilerplate") %>
-<title>New Listing</title>
+    <title>New Listing</title>
+    <div class="row">
 
-<body>
-    <div class="new">
-        <form action="/listings" method="post">
+        <div class="col-8 offset-2">
 
-            <input type="text" name="listings[title]" placeholder="Enter Title">
-            <br>
-            <br>
-            <input type="text" name="listings[description]" id="" placeholder="Enter description">
-            <br><br>
-            <input type="text" name="listings[location]" id="" placeholder="Enter location">
-            <br><br>
-            <input type="text" name="listings[country]" id="" placeholder="Enter Country">
-            <br><br>
-            <input type="number" name="listings[price]" id="" placeholder="Enter Price">
-            <br><br>
-            <input type="text" name="listings[image]" id="" placeholder="Enter Image URL">
-            <!-- <label class="file-upload">
+
+            <h3>Create new listing</h3><br>
+            <form action="/listings" method="post">
+                <div class="mb-3">
+                    <lable for="title" class="form-lable">Enter title</lable>
+                    <input type="text" name="listings[title]" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Enter Description</label>
+                    <textarea class="form-control" rows="3" name="listings[description]"></textarea>
+                </div>
+                <!-- <div>
+                <lable for="description" class="form-lable">Enter Description</lable>
+                <input type="text" name="listings[description]" id="" class="form-control">
+            </div> -->
+
+                <div class="mb-3">
+                    <lable for="location" class="form-lable">Enter location </lable>
+                    <input type="text" name="listings[location]" id="" class="form-control">
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <lable for="price" class="form-lable">Enter Price</lable>
+                        <input type="number" name="listings[price]" id="" class="form-control">
+                    </div>
+                    <div class="mb-3 col-md-8">
+                        <lable for="country" class="form-lable">Enter country</lable>
+                        <input type="text" name="listings[country]" id="" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <lable for="image" class="form-lable">Upload Image</lable>
+                    <input type="file" name="listings[image]" id="" form-control>
+                </div>
+
+                <!-- <label class="file-upload">
                 Choose Image from System
                 <br>
                 <input type="file" name="image">
             </label> -->
-            <br><br>
-            <button type="submit">Submit</button>
-        </form>
+                <button type="submit" class="btn btn-primary offset-5">Submit</button>
+
+            </form>
+        </div>
+
     </div>
-    <!-- <script>
+
+
+    <script>
         // Optional: Add JavaScript to handle the file selection event
-        document.querySelector('input[type="file"]').addEventListener('change', function(event) {
+        document.querySelector('input[type="file"]').addEventListener('change', function (event) {
             const files = event.target.files;
             if (files.length > 0) {
                 alert(`Selected file: ${files[0].name}`);
             }
         });
-    </script> -->
+    </script>
     <hr>
-    
-</body>
