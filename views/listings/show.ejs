@@ -1,39 +1,43 @@
 <% layout("../layouts/boilerplate") %>
-    <style>
-        body div {
-            text-align: center;
-        }
-    </style>
     <title>View Listing</title>
 
-    <body>
-        <div class="show">
-            <!-- <h1>Choosen list</h1> -->
-            <br>
-            <h2>
-                <%= singleList.title%>
-            </h2>
-            <p>
+
+
+    <div class="card mb-3 offset-3" id="card">
+        <img src="<%=singleList.image.url%>" style="width: 30rem;" class="card-img-top" alt="img">
+        <div class="card-body">
+            <h5 class="card-title">
+                <%= singleList.title %>
+            </h5>
+            <p class="card-text">
                 <%= singleList.description %>
             </p>
-            <br>
-
-            <img src="<%=singleList.image.url%>" class="img-fluid" alt="image">
-
-            <h3>Price : &#8377;<%= singleList.price.toLocaleString("en-IN") %>
-            </h3>
-            <p>Location : <%= singleList.location %>
+            <p class="card-text">
+                <b>Location:</b>
+                <%= singleList.location %>
             </p>
-            <h2>Country : <%= singleList.country %>
-            </h2>
-            <button class="btn btn-secondary"><a href="/listings/<%=singleList._id%>/edit">Edit Post</a></button>
-            <form action="/listings/<%=singleList._id%>?_method=DELETE" method="post">
-                <!-- <button type="submit">Delete</button> -->
+            <p class="card-text">
+                <b>Country:</b>
+                <%= singleList.country %>
+            </p>
+            <p class="card-text"> <b>Price :</b> &#8377;<%= singleList.price.toLocaleString("en-IN") %>
+            </p>
+        </div>
+        <div class="btn-family col-md-4 d-flex flex-column flex-md-row">
+            <a href="/listings" class="btn btn-info mb-2 mb-md-0">Go Back</a>
+            <form action="/listings/<%=singleList._id%>?_method=DELETE" method="post" class="mb-2 mb-md-0">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>
-            <!-- <button type="button" class="btn btn-secondary">Secondary</button> -->
-            <button class="btn btn-info"><a href="/listings">Go Back</a></button>
+            <a href="/listings/<%=singleList._id%>/edit" class="btn btn-secondary">Edit</a>
         </div>
-        <hr>
 
-    </body>
+    </div>
+    <style>
+        #card {
+            border: none !important;
+        }
+
+        .btn-family {
+            display: flex;
+        }
+    </style>
