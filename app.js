@@ -101,6 +101,11 @@ app.delete('/listings/:id',async(req,res)=>{
     res.redirect('/listings');
 })
 
+//error handling middleware
+// app.use((req,res)=>{
+//     res.status(404).send("Page not found");
+// })
+
 app.listen(5050, () => {
 
     console.log("server is listening to port : 5050");
